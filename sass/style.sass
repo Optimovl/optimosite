@@ -1,0 +1,1218 @@
+body
+    > div:first-child
+        display: none
+
+// pre-loader
+#page-preloader
+    background: linear-gradient(-124deg, #6629d0 0%, #9429c8 100%)
+    z-index: 999
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+$color-4: #ffffff;
+$color-3: #ffffff;
+$color-2: #ffffff;
+$color-1: #ffffff;
+$color-5: #ffffff;
+
+$color: $color-1, $color-2, $color-3, $color-4, $color-5;
+
+@mixin anim() 
+  @keyframes scale 
+    0% 
+        transform: scale(1)
+    
+    50%,
+    75% 
+      transform: scale(2.5)
+    
+    78%, 100% 
+      opacity: 0
+
+.dot-loader 
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 100vh
+  overflow: hidden
+  animation-delay: 1s
+
+@for $i from 1 through 5 
+  .item-#{$i} 
+    width: 20px
+    height: 20px
+    background: #f583a1
+    border-radius: 50%
+    @include anim()
+    background-color: nth($color, $i)
+    margin: 7px
+    display: flex
+    justify-content: center
+    align-items: center
+    &:before 
+      content: ''
+      width: 20px
+      height: 20px
+      border-radius: 50%
+      background-color: nth($color, $i)
+      opacity: 0.7
+      animation: scale 2s infinite cubic-bezier(0, 0, 0.49, 1.02)
+      animation-delay: 200ms * $i
+      transition: 0.5s all ease
+      transform: scale(1)
+
+html, body
+    margin: 0
+    padding: 0
+    font-size: 16px
+    font-weight: 400
+    font-family: 'Montserrat Regular', sans-serif
+    min-width: 320px
+    overflow-x: hidden
+*, *:before, *:after
+    box-sizing: border-box
+    z-index: 0
+h1, h2, h3, h4, h5, h6, p, ul, li, a
+    margin: 0
+    padding: 0
+    font-weight: 400
+    font-size: 16px
+    line-height: 1
+*::-webkit-input-placeholder
+    font-family: 'Montserrat Regular', sans-serif
+*::-moz-placeholder
+    font-family: 'Montserrat Regular', sans-serif
+*:-moz-placeholder
+    font-family: 'Montserrat Regular', sans-serif
+*:-ms-input-placeholder
+    font-family: 'Montserrat Regular', sans-serif
+h1.title
+    position: relative
+    margin-bottom: 50px
+    font-family: 'Panton Black', sans-serif
+    font-size: 60px
+    font-weight: 400
+    text-transform: uppercase
+    margin-bottom: 25px
+    @media (max-width: 970px)
+        text-align: center
+    @media (max-width: 450px)
+        font-size: 30px
+    &:before
+        content: ''
+        display: block
+        position: absolute
+        top: -20px
+        left: 0
+        margin: auto
+        width: 160px
+        height: 4px
+        background-color: #f5f5f5
+        background-image: linear-gradient(-124deg, #6629d0 0%, #9429c8 100%)
+        @media (max-width: 970px)
+            right: 0
+h2.title
+    position: relative
+    margin-bottom: 50px
+    padding-bottom: 15px
+    width: 100%
+    text-align: center
+    text-transform: uppercase
+    color: transparent
+    font-family: 'Panton Black', sans-serif
+    font-size: 48px
+    font-weight: 900
+    background-clip: text
+    background-image: linear-gradient(-124deg, #6629d0 0%, #9429c8 100%)
+    @media (max-width: 450px)
+        font-size: 30px
+        padding-bottom: 20px
+        margin-bottom: 20px
+    &:after
+        content: ''
+        display: block
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        margin: auto
+        width: 160px
+        height: 4px
+        background-color: #f5f5f5
+        background-image: linear-gradient(-124deg, #6629d0 0%, #9429c8 100%)
+h3.title
+    position: relative
+    margin-bottom: 50px
+    &:after
+        content: ''
+        display: block
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        margin: auto
+        width: 160px
+        height: 4px
+        background-color: #f5f5f5
+        background-image: linear-gradient(-124deg, #6629d0 0%, #9429c8 100%)
+h4.title
+    position: relative
+    margin-bottom: 50px
+    &:after
+        content: ''
+        display: block
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        margin: auto
+        width: 160px
+        height: 4px
+        background-color: #f5f5f5
+        background-image: linear-gradient(-124deg, #6629d0 0%, #9429c8 100%)
+h2.title_gray
+    color: #c5cdd2
+    font-size: 48px
+    font-weight: 900
+    @media (max-width: 450px)
+        font-size: 30px
+    &:after
+        display: none
+h4.subtitle
+    text-align: center
+    margin-bottom: 50px
+    font-size: 14px
+    line-height: 20px
+    font-weight: 400
+ul, li
+    list-style: none
+a
+    text-decoration: none
+    color: inherit
+.wrap
+    max-width: 1170px
+    width: 100%
+    margin: 0 auto
+    padding: 0 15px
+    @media (max-width: 768px)
+        max-width: 768px
+        padding: 0 25px
+.bg-light-gray
+    background: #F5F5F5
+
+// bx-slider
+.slider__wrap
+    .bx-wrapper
+        max-width: 625px!important
+        width: 100%
+        margin: 0 auto 0px
+        box-shadow: 11px 19px 43px 3px rgba(36, 36, 72, 0.14), 2px 3px 130px rgba(36, 36, 72, 0.06), 1px 1px 8px rgba(36, 36, 72, 0.01), 60px 104px 133px rgba(36, 36, 72, 0.08)
+        background: #f5f5f5
+        border: none
+.reviews-slider__wrap
+    .bx-wrapper
+        margin: 0 auto 0px
+        border: none
+        box-shadow: none
+        @media (max-width: 1450px)
+            max-width: 855px!important
+        @media (max-width: 1100px)
+            max-width: 550px!important
+        @media (max-width: 740px)
+            margin-bottom: 130px
+.bx-controls-direction
+    .bx-prev
+        width: 73px!important
+        height: 60px!important
+        left: -165px
+        background: url('../img/arrow-prev.png')
+        background-repeat: no-repeat
+        opacity: 0.5
+        transition: all 300ms linear
+        &:hover
+            opacity: 1
+            transform: scale(1.1)
+        @media (max-width: 1200px)
+            opacity: 1
+            &:hover
+                transform: scale(1)
+    .bx-next
+        width: 73px!important
+        height: 60px!important
+        right: -165px
+        background: url('../img/arrow-next.png')
+        background-repeat: no-repeat
+        opacity: 0.5
+        transition: all 300ms linear
+        &:hover
+            opacity: 1
+            transform: scale(1.1)
+        @media (max-width: 1200px)
+            opacity: 1
+            &:hover
+                transform: scale(1)
+.bx-pager.bx-default-pager
+    display: none
+
+// header
+.header
+    position: absolute
+    top: 40px
+    left: 0
+    width: 100%
+    @media (max-width: 450px)
+        top: 15px
+    .wrap
+        display: flex
+        flex-flow: row nowrap
+        justify-content: space-between
+        align-items: center
+        color: #ffffff
+        @media (max-width: 450px)
+            flex-flow: column
+    .drop-menu
+        @media (max-width: 768px)
+            margin: 0 auto 0 25px
+        @media (max-width: 450px)
+            margin: 0 auto 10px
+.menu
+    max-width: 375px
+    min-width: 375px
+    width: 100%
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-items: center
+    @media (max-width: 1200px)
+        min-width: auto
+        max-width: none
+        width: auto
+        margin: 0 auto 0 25px
+    @media (max-width: 450px)
+        order: -1
+        margin: 0 auto 10px
+
+.menu__list
+    max-width: 330px
+    min-width: 330px
+    width: 100%
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-items: center
+    font-family: 'Panton Bold', sans-serif
+    font-size: 16px
+    font-weight: 700
+    text-transform: uppercase
+    @media (max-width: 1200px)
+        display: none
+        min-width: auto
+        max-width: none
+.phone
+    font-family: 'Montserrat Light', sans-serif
+    font-size: 20px
+    font-weight: 300
+    span
+        font-family: 'Montserrat Semibold', sans-serif
+        font-weight: 700
+    @media (max-width: 1200px)
+        margin-right: 30px
+    @media (max-width: 768px)
+        margin-right: 0
+    @media (max-width: 450px)
+        display: none
+.calculate-order
+    font-family: 'Panton ExtraBold', sans-serif
+    font-size: 16px
+    font-weight: 400
+    @media (max-width: 1200px)
+        margin-right: 30px
+    @media (max-width: 768px)
+        display: none
+.pay-order
+    padding: 6px 15px
+    font-family: 'Panton ExtraBold', sans-serif
+    font-size: 16px
+    font-weight: 400
+    text-transform: uppercase
+    border-radius: 15px
+    border: 1px solid #ffffff
+    @media (max-width: 768px)
+        display: none
+
+
+
+// title__section
+.title__section
+    padding: 170px 0 90px
+    background: url('../img/s1-bg.png')
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    @media (max-width: 970px)
+        background: url('../img/s1-bg-mob.png')
+        background-repeat: no-repeat
+        background-size: cover
+    @media (max-width: 450px)
+        padding-top: 130px
+    &--seo
+        padding-bottom: 60px
+        background: url('../img/s1-seo-bg.png')
+        background-position: 50% 50%
+        background-repeat: no-repeat
+        background-size: cover
+        @media (max-width: 970px)
+            background: url('../img/s1-bg-mob.png')
+            background-repeat: no-repeat
+            background-size: cover
+    .wrap
+        display: flex
+        flex-flow: row nowrap
+        justify-content: flex-end
+        align-items: flex-start
+        @media (max-width: 970px)
+            justify-content: center
+        > div
+            max-width: 490px
+            width: 100%
+            color: #ffffff
+    .subtitle
+        font-family: 'Panton Bold', sans-serif
+        font-size: 24px
+        font-weight: 700
+        text-transform: uppercase
+        margin-bottom: 55px
+        @media (max-width: 970px)
+            text-align: center
+        @media (max-width: 450px)
+            font-size: 18px
+            text-align: center
+            max-width: 205px
+            width: 100%
+            margin: 0 auto 20px
+    .description
+        font-size: 16px
+        font-weight: 400
+        line-height: 24px
+        margin-bottom: 40px
+        @media (max-width: 970px)
+            text-align: center
+.order
+    transition: all 3000ms
+    display: flex
+    flex-flow: row nowrap
+    justify-content: center
+    align-items: center
+    max-width: 300px
+    width: 100%
+    height: 60px
+    box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.35)
+    border-radius: 23px
+    background: linear-gradient(-124deg, #6629d0 0%, #9429c8 100%)
+    font-family: 'Montserrat Semibold', sans-serif
+    font-size: 24px
+    font-weight: 400
+    text-transform: uppercase
+    position: relative
+    transition: all 0.3s linear
+    &:hover
+        background: transparent
+        .order-helper
+            opacity: 1
+            border: 2px solid #9429c8
+            box-shadow: 0px 0px 20px 2px rgba(118, 42, 205, 0.8)
+    @media (max-width: 970px)
+        margin: 0 auto 0
+    .order-helper
+        position: absolute
+        z-index: -1
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        opacity: 0
+        transition: all 0.3s linear
+        border: 2px solid transparent
+        border-radius: 23px
+
+
+// what-contextual-advertising
+.what-contextual-advertising
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    @media (max-width: 1200px)
+        flex-flow: column
+    .wrap
+        max-width: 50%
+        width: 100%
+        padding: 65px 0 50px
+        display: flex
+        flex-flow: row nowrap
+        align-items: flex-start
+        @media (max-width: 1200px)
+            max-width: 100%
+            padding: 65px 25px 50px
+        @media (max-width: 450px)
+            padding: 20px 25px
+        &:nth-child(1)
+            justify-content: flex-end
+        &:nth-child(2)
+            justify-content: flex-start
+        > div
+            &:nth-child(1)
+                max-width: 580px
+                width: 100%
+                @media (max-width: 1200px)
+                    max-width: 100%
+            &:nth-child(2)
+                max-width: 580px
+                width: 100%
+                @media (max-width: 1200px)
+                    max-width: 100%
+    h2.title
+        text-align: left
+        &:after
+            right: auto
+        @media (max-width: 1200px)
+            text-align: center
+            &:after
+                right: 0
+        span
+            font-size: 36px
+            display: block
+            @media (max-width: 450px)
+                display: inline
+                font-size: 30px
+    .description
+        padding-left: 100px
+        color: #000000
+        font-size: 14px
+        font-weight: 400
+        line-height: 20px
+        position: relative
+        @media (max-width: 1200px)
+            max-width: 555px
+            margin: auto
+        @media (max-width: 450px)
+            padding-left: 0
+            text-align: center
+        
+        span
+            font-weight: 700
+            font-family: 'Montserrat Bold', sans-serif
+        p
+            margin-bottom: 20px
+            line-height: 20px
+            &:last-child
+                margin-bottom: 0
+        &:before
+            position: absolute
+            top: 0
+            left: 0
+            content: 'ad'
+            display: block
+            width: 84px
+            height: 84px
+            padding: 20px 15px
+            display: flex
+            flex-flow: row nowrap
+            justify-content: center
+            align-items: center
+            border-radius: 20px
+            background: linear-gradient( -146deg, rgb(92,38,205) 0%, rgb(102,41,208) 0%, rgb(148,41,200) 100%)
+            font-size: 34px
+            color: rgb(255, 255, 255)
+            font-weight: bold
+            line-height: 1.2
+            text-transform: uppercase
+            @media (max-width: 450px)
+                position: static
+                margin: 0 auto 25px
+
+    .wrap
+        &:nth-child(2)
+            > div
+                margin-left: 20px
+                padding: 25px 30px 30px 35px
+                box-shadow: 11px 19px 43px 3px rgba(36, 36, 72, 0.14), 2px 3px 130px rgba(36, 36, 72, 0.06), 1px 1px 8px rgba(36, 36, 72, 0.01), 60px 104px 133px rgba(36, 36, 72, 0.08)
+                background-color: #ffffff
+                @media (max-width: 1200px)
+                    max-width: 555px
+                    margin: 0 auto
+                @media (max-width: 450px)
+                    margin: 0
+                    text-align: center
+                    box-shadow: none
+                p
+                    color: #000000
+                    font-size: 14px
+                    font-weight: 400
+                    line-height: 20px
+                    margin-bottom: 30px
+                    &:last-child
+                        margin-bottom: 0
+                span
+                    font-family: 'Montserrat Semibold', sans-serif
+                    font-weight: 600
+
+
+// seo-promotion
+.seo-promotion
+    display: flex
+    @media (max-width: 1200px)
+        flex-direction: column
+    > .wrap
+        &:first-child
+            display: flex
+            justify-content: flex-end
+    .title
+        text-align: left
+        max-width: 545px
+        width: 100%
+        padding: 70px 45px 0px 0px
+        margin-bottom: 0
+        @media (max-width: 1200px)
+            max-width: 100%
+            text-align: center
+            padding-right: 0
+            padding-bottom: 20px
+            margin-bottom: 20px
+        @media (max-width: 450px)
+            padding-top: 20px
+            font-size: 30px
+            padding-bottom: 20px
+            margin-bottom: 20px
+        &::after
+            display: none
+        span
+            font-size: 36px
+            display: block
+            position: relative
+            background-clip: text
+            background-image: -webkit-linear-gradient(214deg, #6629d0 0%, #9429c8 100%)
+            background-image: -o-linear-gradient(214deg, #6629d0 0%, #9429c8 100%)
+            background-image: linear-gradient(-124deg, #6629d0 0%, #9429c8 100%)
+            @media (max-width: 450px)
+                font-size: 30px
+            &:after
+                content: ''
+                display: block
+                position: absolute
+                bottom: -15px
+                left: 0
+                right: auto
+                margin: auto
+                width: 160px
+                height: 4px
+                background-image: -webkit-linear-gradient(214deg, #6629d0 0%, #9429c8 100%)
+                background-image: -o-linear-gradient(214deg, #6629d0 0%, #9429c8 100%)
+                background-image: linear-gradient(-124deg, #6629d0 0%, #9429c8 100%)
+                @media (max-width: 1200px)
+                    right: 0
+    .description
+        max-width: 590px
+        width: 100%
+        padding: 70px 45px
+        @media (max-width: 1200px)
+            margin: 0 auto
+        @media (max-width: 450px)
+            padding: 20px 0
+        p
+            font-size: 14px
+            position: relative
+            padding-left: 120px
+            font-size: 14px
+            font-weight: 400
+            line-height: 20px
+            @media (max-width: 450px)
+                padding-left: 0
+                text-align: center
+            &::before
+                content: url("../img/search-icon.png")
+                position: absolute
+                top: 0
+                left: 0
+                display: block
+                width: 84px
+                height: 84px
+                padding: 20px 15px
+                display: flex
+                flex-flow: row nowrap
+                justify-content: center
+                align-items: center
+                border-radius: 20px
+                background: -webkit-linear-gradient(236deg, #5c26cd 0%, #6629d0 0%, #9429c8 100%)
+                background: -o-linear-gradient(236deg, #5c26cd 0%, #6629d0 0%, #9429c8 100%)
+                background: linear-gradient(-146deg, #5c26cd 0%, #6629d0 0%, #9429c8 100%)
+                font-size: 34px
+                color: white
+                font-weight: bold
+                line-height: 1.2
+                text-transform: uppercase
+                @media (max-width: 450px)
+                    position: static
+                    margin: 0 auto 25px
+        span
+            display: block
+            margin-bottom: 5px
+            font-family: 'Montserrat Bold', sans-serif
+            font-weight: 700
+
+
+// why-do-i-need-it
+.why-do-i-need-it
+    padding-top: 55px
+    &__custom
+        display: flex
+        @media (max-width: 1200px)
+            flex-wrap: wrap
+        .bg-light-gray
+            max-width: 945px
+            padding: 70px 50px
+            @media (max-width: 1200px)
+                order: 1
+                max-width: 100%
+                width: 100%
+            p
+                margin: 0 0 0 auto
+                max-width: 505px
+                width: 100%
+                color: #000000
+                font-size: 18px
+                font-weight: 400
+                line-height: 28px
+                @media (max-width: 1200px)
+                    margin: auto
+                    text-align: center
+.why-do-i-need-it__title
+    max-width: 905px
+    width: 100%
+    color: #000000
+    font-size: 24px
+    font-family: 'Montserrat Bold', sans-serif
+    font-weight: 700
+    line-height: 34px
+    margin-bottom: 50px
+    @media (max-width: 1200px)
+        margin: auto
+        margin-bottom: 50px
+        text-align: center
+    @media (max-width: 450px)
+        font-size: 18px
+        line-height: 20px
+.why-do-i-need-it__list
+    max-width: 950px
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+    padding-bottom: 90px
+    @media (max-width: 1200px)
+        margin: auto
+    @media (max-width: 900px)
+        flex-direction: column
+        align-items: center
+        padding-bottom: 0
+        max-width: 550px
+    &--other
+        max-width: 550px
+.why-do-i-need-it__item
+    max-width: 250px
+    width: 100%
+    @media (max-width: 1200px)
+        text-align: center
+    @media (max-width: 900px)
+        max-width: 100%
+        margin-bottom: 20px
+        display: flex
+        align-items: center
+        text-align: left
+    @media (max-width: 450px)
+        flex-direction: column!important
+        text-align: center
+    &:nth-child(3)
+        display: flex
+        max-width: 370px
+        @media (max-width: 1200px)
+            flex-direction: column
+            max-width: 250px
+        @media (max-width: 900px)
+            max-width: 100%
+            flex-direction: row
+        .why-do-i-need-it__counter
+            margin-right: 40px
+            @media (max-width: 1200px)
+                margin: 0 auto 20px
+            @media (max-width: 900px)
+                margin: 0 20px 0 0
+            @media (max-width: 450px)
+                margin-bottom: 20px
+            &::after
+                width: 1px
+                height: 160px
+                left: 0
+                right: 0
+                margin: auto
+                top: calc( 100% + 25px )
+                border-left: 1px dashed #7224d6
+                @media (min-width: 1921px)
+                    display: none
+.why-do-i-need-it__counter
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    color: #ffffff
+    font-family: 'Panton Black', sans-serif
+    font-size: 60px
+    font-weight: 400
+    min-width: 82px
+    width: 82px
+    height: 82px
+    background-color: #e8e9eb
+    background-image: linear-gradient(-124deg, #6629d0 0%, #9429c8 100%)
+    margin-bottom: 40px
+    @media (max-width: 1200px)
+        margin: 0 auto 20px
+    @media (max-width: 900px)
+        margin: 0 20px 0 0
+    @media (max-width: 450px)
+        width: 40px
+        height: 40px
+        min-width: 40px
+        font-size: 25px
+        margin-bottom: 20px
+    &::after
+        content: ''
+        position: absolute
+        left: calc( 100% + 25px )
+        display: block
+        width: 160px
+        height: 1px
+        border-top: 1px dashed #7224d6
+        @media (max-width: 1200px)
+            display: none
+    &--after-d-none
+        &:after
+            display: none
+        
+
+
+
+// how-we-doing
+.how-we-doing
+    padding: 70px 0 40px
+    @media (max-width: 450px)
+        padding: 20px 0
+.how-we-doing__list
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+    align-items: flex-start
+    counter-reset: section
+    @media (max-width: 470px)
+        justify-content: center
+        text-align: center
+    &--seo
+        max-width: 910px
+        margin: auto
+.how-we-doing__item
+    max-width: 210px
+    width: 100%
+    margin-bottom: 35px
+    position: relative
+    font-size: 14px
+    font-weight: 400
+    line-height: 20px
+    &:last-child
+        font-family: 'Montserrat Bold', sans-serif
+        background-clip: text
+        background-image: linear-gradient(-124deg, #6629d0 0%, #9429c8 100%)
+        color: transparent
+    &:before
+        color: #000000
+        font-family: 'Panton Regular', sans-serif
+        display: flex
+        flex-flow: row nowrap
+        justify-content: center
+        align-items: center
+        width: 40px
+        height: 40px
+        margin-bottom: 20px
+        background-color: #f5f5f5
+        font-size: 24px
+        font-weight: 400
+        counter-increment: section
+        content: counters(section,".") " "
+        @media (max-width: 470px)
+            margin: 0 auto 20px
+    &:after
+        content: ''
+        display: block
+        position: absolute
+        top: 20px
+        left: 50px
+        width: 160px
+        height: 1px
+        border: 1px dashed #7224d6
+        @media (max-width: 470px)
+            display: none
+    &:last-child
+        &:after
+            display: none
+    &--seo
+        &:last-child
+            font-family: 'Montserrat Regular', sans-serif
+            font-size: 14px
+            font-weight: 400
+            line-height: 20px
+            color: #000000
+            background-image: none
+
+
+// test
+.test
+    .wrap
+        border-top: 2px solid #7224d6
+        display: flex
+        flex-flow: row nowrap
+        justify-content: space-between
+        align-items: center
+        @media (max-width: 1200px)
+            justify-content: center
+            flex-wrap: wrap
+        @media (max-width: 450px)
+            border-top: none
+        p
+            max-width: 630px
+            width: 100%
+            font-family: 'Montserrat Italic', sans-serif
+            font-size: 14px
+            font-style: italic
+            line-height: 20px
+            @media (max-width: 1200px)
+                max-width: 100%
+            @media (max-width: 450px)
+                margin-top: 20px
+                border-top: 2px solid #7224d6
+                padding-top: 20px
+                text-align: center
+
+
+// how-we-doing__slider
+.how-we-doing__slider
+    padding: 50px 0 70px
+    .bx-wrapper
+        @media (max-width: 970px)
+            max-width: 555px!important
+            .bx-controls-direction .bx-prev
+                left: -85px
+            .bx-controls-direction .bx-next
+                right: -85px
+        @media (max-width: 740px)
+            box-shadow: none
+            background: #ffffff
+            .bx-controls-direction a
+                top: 20%
+            .bx-controls-direction .bx-prev
+                left: 0px
+            .bx-controls-direction .bx-next
+                right: 0px
+.slider__list
+    counter-reset: section
+.slider__item
+    padding: 35px 65px 45px 140px
+    display: flex
+    font-size: 14px
+    color: rgba(0, 0, 0, 0.4)
+    line-height: 1.429
+    transition: all 300ms
+    &:hover
+        cursor: pointer
+        color: rgba(0, 0, 0, 1)
+        &:before
+            color: rgba(0, 0, 0, 0.6)
+    @media (max-width: 1000px)
+        color: rgba(0, 0, 0, 1)
+    @media (max-width: 740px)
+        padding: 0
+        display: block
+    &:before
+        position: absolute
+        left: 50px
+        top: 0
+        bottom: 0
+        margin: auto
+        color: #c5cdd2
+        font-size: 95px
+        font-weight: 300
+        display: flex
+        flex-flow: row nowrap
+        justify-content: center
+        align-items: center
+        counter-increment: section
+        content: counters(section,".") " "
+        transition: all 300ms
+        @media (max-width: 1000px)
+            color: rgba(0, 0, 0, 0.6)
+        @media (max-width: 740px)
+            position: static
+
+// how-we-analyze
+.how-we-analyze
+    padding: 55px 0 50px
+.how-we-analyze__list
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+    align-items: flex-start
+    @media (max-width: 1100px)
+        justify-content: center
+.how-we-analyze__item
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-content: flex-start
+    position: relative
+    font-size: 16px
+    font-weight: 400
+    line-height: 20px
+    max-width: 535px
+    width: 100%
+    min-height: 55px
+    margin-bottom: 50px
+    @media (max-width: 450px)
+        flex-flow: column
+        align-items: center
+        margin-bottom: 20px
+        text-align: center
+    &:before
+        content: ''
+        display: block
+        max-width: 32px
+        min-width: 32px
+        height: 32px
+        margin-right: 35px
+        background: url('../img/verified.png')
+        background-repeat: no-repeat
+        @media (max-width: 450px)
+            margin-right: 0
+            margin-bottom: 20px
+    &:after
+        content: ''
+        display: block
+        width: 1px
+        height: 52px
+        background-color: #7224d6
+        position: absolute
+        top: 45px
+        left: 15px
+        @media (max-width: 450px)
+            display: none
+    &:nth-child(n+5)
+        margin-bottom: 0px
+        &:after
+            display: none
+    @media (max-width: 1100px)
+        &:nth-child(n+5)
+            margin-bottom: 50px
+            &:after
+                display: block
+                @media (max-width: 450px)
+                    display: none
+        &:nth-child(n+6)
+            &:after
+                display: none
+
+
+
+// reviews
+.reviews
+    padding: 55px 0 50px
+    .bx-viewport
+        padding: 50px
+    .bx-controls-direction .bx-prev
+        left: -88px
+        @media (max-width: 740px)
+            top: 120%
+            left: 50px
+    .bx-controls-direction .bx-next
+        right: -88px
+        @media (max-width: 740px)
+            top: 120%
+            right: 50px
+.reviews-slider__list
+    margin-left: -50px
+.owl-stage-outer
+    padding: 20px
+    @media (max-width: 550px)
+        padding: 0px
+.reviews-slider__item
+    transition: all 300ms linear
+    background: rgb(255, 255, 255)
+    box-shadow: 0px 0px 20px 2px rgba(36, 36, 72, 0.14)
+    &:hover
+        box-shadow: 0px 0px 20px 2px rgba(118, 42, 205, 0.5)
+    a
+        display: block
+
+
+// want-work
+.want-work
+    padding: 50px 0 90px
+    .wrap
+        > h4.subtitle
+            @media (max-width: 768px)
+                max-width: 480px
+                width: 100%
+                margin: 0 auto 50px
+.form
+    padding: 50px 80px 0
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+    align-items: flex-start
+    border: 4px solid rgb(245, 245, 245)
+    background: rgb(255, 255, 255)
+    box-shadow: 0px 120px 133px 0px rgba(36, 36, 72, 0.08),0px 1px 8px 0px rgba(36, 36, 72, 0.01),0px 3px 130px 0px rgba(36, 36, 72, 0.06),0px 22px 43.24px 2.76px rgba(36, 36, 72, 0.14)
+    @media (max-width: 450px)
+        padding: 40px 30px 0
+    > div
+        &:first-child
+            max-width: 100%
+            width: 100%
+            display: flex
+            flex-flow: row nowrap
+            justify-content: space-between
+            @media (max-width: 740px)
+                flex-wrap: wrap
+                input
+                    max-width: 100%
+    input, textarea, label
+        max-width: 30%
+        width: 100%
+        border: 1px solid rgb(229, 229, 229)
+        border-radius: 12px
+        background: rgb(255, 255, 255)
+        padding: 10px
+        margin-bottom: 30px
+    textarea
+        max-width: 100%
+        resize: none
+        min-height: 160px
+    label
+        min-width: 215px
+        background: rgb(245, 245, 245)
+        position: relative
+        @media (max-width: 350px)
+            min-width: 100%
+        input
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            opacity: 0
+        span
+            display: flex
+            flex-flow: row nowrap
+            justify-content: flex-start
+            align-items: center
+            &:before
+                content: ''
+                display: block
+                width: 25px
+                height: 20px
+                margin-right: 15px
+                background: url('../img/file.png')
+                background-repeat: no-repeat
+                @media (max-width: 450px)
+                    margin-right: 0px
+    p
+        width: 100%
+        @media (max-width: 450px)
+            order: 1
+    button
+        display: flex
+        flex-flow: row nowrap
+        justify-content: center
+        align-items: center
+        max-width: 250px
+        width: 100%
+        padding: 10px 0
+        background-color: rgb(255, 204, 0)
+        // border: 2px solid transparent
+        border: none
+        border-radius: 18px
+        font-family: 'Montserrat Semibold', sans-serif
+        font-size: 18px
+        color: #000000
+        font-weight: bold
+        line-height: 1.2
+        margin: 0 auto 30px
+        transition: all 300ms linear
+        &:hover
+            background-color: #8427C4
+            color: #ffffff
+            // border: 2px solid rgb(255, 204, 0)
+            cursor: pointer
+    h4.subtitle
+        width: 100%
+        @media (max-width: 768px)
+            max-width: 440px
+            text-align: left
+            margin: 0 0 50px
+        @media (max-width: 450px)
+            text-align: center
+
+
+
+// footer
+.footer
+    padding: 35px 0 45px
+    background: linear-gradient(180deg, #8227C3 0%, #9529C7 100%)
+    .wrap
+        display: flex
+        flex-flow: row nowrap
+        justify-content: space-between
+        align-items: center
+        a
+            text-transform: capitalize
+            color: #ffffff
+    .logo
+        @media (max-width: 450px)
+            display: none
+    .menu
+        margin: 0 auto 0 50px
+        @media (max-width: 1200px)
+            display: none
+    .phone
+        @media (max-width: 450px)
+            display: block
+.social__links
+    max-width: 100px
+    width: 100%
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-items: center
+    margin: 0 30px 0 auto
+    @media (max-width: 450px)
+        margin: 0
+    img
+        width: 100%
+        height: auto
+
+
+
+
+// ------------------------
+.fancybox-slide.watermark .fancybox-spaceball 
+  background-image: url('http://fancyapps.com/GJbkSPU.png')
+  background-size: cover
+  background-repeat: no-repeat
+.fancybox-button.fancybox-button--zoom, .fancybox-button.fancybox-button--thumbs
+    display: none!important
