@@ -1,0 +1,46 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+
+<?php
+	if (!isset($variables['src'])) {
+		$variables['src'] = $this->translate('empty-photo');
+	}
+
+	if (!isset($variables['width'])) {
+		$variables['width'] = 'auto';
+	}
+
+	if (!isset($variables['height'])) {
+		$variables['height'] = 'auto';
+	}
+
+	$image = $this->macros(
+			'system',
+			'makeThumbnailFull',
+			['path' => '.' . $variables['src'], 'width' => $variables['width'], 'height' => $variables['height']]
+	)
+?>
+
+<img
+	src="<?= $image['src'] ?>"
+	width="<?= $image['width'] ?>"
+	height="<?= $image['height'] ?>"
+	<?php
+		if (isset($variables['fieldName']) && isset($variables['id'])) {
+			echo 'umi:element-id="' . $variables['id'] . '" ';
+			echo 'umi:field-name="' . $variables['fieldName'] . '" ';
+		}
+
+		if (isset($variables['align'])) {
+			echo 'align="' . $variables['align'] . '" ';
+		}
+
+		if (isset($variables['empty'])) {
+			echo 'umi:empty="' . $variables['empty'] . '" ';
+		}
+
+		if (isset($variables['item'])) {
+			echo 'itemprop="image" ';
+		}
+	?>
+/>

@@ -1,0 +1,16 @@
+<section class="content-4">
+    <div class="container">
+        <div class="row features">
+          <span class="anistart" />
+            <?php foreach ($variables['items']['nodes:item'] as $item): ?>
+                      <?php $service = $this->getPageById($item['@id']); ?>
+                      <div class="col-sm-4 ani-processed"  style="opacity: 1;">
+                        <img src="/images/icons/svg/<?echo $item['@id'];?>.svg" alt="" width="150" height="150">
+                        <h2><a href="<?=$item['@link']?>"><?=$item['node:text']?></a></h2>                        
+                        <?= $service->getValue('anons')?>
+                    </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section> 
+ 

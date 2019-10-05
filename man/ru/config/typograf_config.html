@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; UTF-8" />
+        <title>Untitled Document</title>
+    </head>
+    <body>
+        <style>
+            #info_block a {
+                text-decoration: underline;
+            }
+            #info_block a:hover {
+                text-decoration: none;
+            }
+            #info_block ul, #info_block ol {padding:0 5px}
+            #info_block ul li {margin-left:20px; margin-bottom: 5px; list-style:disc;}
+            #info_block ol li {margin-left:20px; margin-bottom: 5px; list-style:decimal;}
+            .help_sect {padding-left:8px}  
+            .faq_subtitle { font-weight: bold; font-size: 14px; color: #0088e8 !important; cursor: pointer; border-bottom: 1px solid #fff; margin:0px;}
+            .faq_content { display: none; }
+            .closed { border-bottom: 1px dashed #0088e8; color: #0088e8 !important; cursor: pointer; display: inline; }
+            .opened { border: none !important }
+            .clear {display: block; margin-top:10px;}
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("body").on("click", ".faq_subtitle", function () {
+                    var this_ = $(this);
+                    var data_content_id = $(this).attr("data-content-id");
+                    var faq_content = $(".faq_content[data-content-id = '" + data_content_id + "']");
+                    if ($(this).hasClass("closed")) {
+                        this_.removeClass("closed");
+                        this_.addClass("opened");
+                        faq_content.css("display", "block");
+                    } else {
+                        this_.removeClass("opened");
+                        this_.addClass("closed");
+                        faq_content.css("display", "none");
+                    }
+                });
+            });
+        </script>
+
+        <p class="faq_subtitle closed" data-content-id="1">Как включить Типограф?</p>
+        <div class="faq_content" data-content-id="1">
+            <p>
+                Для включения Типографа необходимо поставить галочку в опции <strong>«Включить Типограф»</strong>.
+            </p>
+        </div>
+        <div class="clear"></div>
+        <p class="faq_subtitle closed" data-content-id="2">Как работает Типограф?</p>
+        <div class="faq_content" data-content-id="2">
+            <p>Типограф реализует два режима работы: <strong>ручной</strong> и <strong>автоматический (фоновый)</strong>. <br /><br /><strong>Ручной режим</strong> подразумевает массовую обработку контента HTML-полей страниц и&nbsp;объектов. Эта опция необходима, если вы&nbsp;хотите массово обновить типографику на&nbsp;сайте, где ранее не&nbsp;использовался Типограф. <br/><br/>Для активации данного режима необходимо нажать кнопку <strong>&laquo;Обновить типографику&raquo;</strong> в&nbsp;конфигурации Типографа.<br /><br /><strong>Автоматический (фоновый) режим</strong> подразумевает обработку контента HTML-полей страниц и&nbsp;объектов справочников во&nbsp;время их&nbsp;создания, или сохранения. <br/><br/>Данный режим активируется сразу после включения Типографа.</p>
+        </div>
+        <div class="clear"></div>
+        <p class="faq_subtitle closed" data-content-id="3">Могу ли я менять настройки Типографа?</p>
+        <div class="faq_content" data-content-id="3">
+            <p>Да! Типограф содержит множество опций, большую часть из которых можно регулировать в конфигурации расширения.<br/><br/>Часть опций активированы по умолчанию. Для активации опции установите галочку напротив названия соответствующей опции, а также убедитесь в том, что опция <strong>«Включить Типограф»</strong> активна.</p>
+        </div>
+        <div class="clear"></div>
+    </body>
+</html>

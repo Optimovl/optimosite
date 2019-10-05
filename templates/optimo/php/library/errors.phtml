@@ -1,0 +1,15 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+
+<?php if (isset($variables['items']) && isset($variables['items']['nodes:item'])): ?>
+<div class="errors">
+    <h3><?=$this->translate('errors')?>:</h3>
+    <ul>
+        <?php foreach ($variables['items']['nodes:item'] as $item): ?>
+            <li>
+                <?=$item['node:message']?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>

@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; UTF-8" />
+		<title>Untitled Document</title>
+	</head>
+	<body>
+        <p>Модуль представляет собой визуальную оболочку для функционала <a href="http://wiki.umisoft.ru/Robots.txt_%D0%BD%D0%B0_%D0%BA%D0%B0%D0%B6%D0%B4%D1%8B%D0%B9_%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD_(2.8)" target="_blank">robots.txt на каждый домен</a></p>
+        <p>Для получения содержимого файла robots.txt необходимо выбрать домен и нажать на кнопку <i>"Получить robots.txt"</i>. Содержимое файла robots.txt будет загружено в поле <i>"Содержимое robots.txt"</i>.</p>
+        <p>Если в поле <i>"Содержимое robots.txt"</i> нет данных, это значит, что для выбранного домена файл robots.txt строится автоматически по следующему принципу:</p>
+        <p>
+            User-Agent: Googlebot <br />
+            Disallow: /? <br />
+            %disallow_umi_pages% <br />
+            <br />
+            User-Agent: Yandex <br/>
+            Disallow: /? <br />
+            %disallow_umi_pages% <br />
+            Host: $домен<br />
+            Crawl-delay: 3 <br />
+            <br />
+            User-Agent: * <br />
+            Disallow: /? <br />
+            %disallow_umi_pages% <br />
+            <br />
+            Sitemap: http://{$домен}/sitemap.xml <br />
+        </p>
+        <p>Макрос <b>%disallow_umi_pages%</b> выводит список запрещенных к индексации страниц (для которых в административной панели была поставлена галочка "Запретить индексацию поисковиками") и следующие строки:</p>
+        <p>
+            Disallow: /admin<br />
+            Disallow: /index.php<br />
+            Disallow: /emarket/addToCompare<br />
+            Disallow: /emarket/basket<br />
+            Disallow: /go_out.php<br />
+            Disallow: /search<br />
+        </p>
+        <p>Чтобы вернуть файл robots.txt в исходное состояние, нужно удалить все содержимое из поля "Содержимое robots.txt" и нажать на кнопку "Сохранить".</p>
+	</body>
+</html>

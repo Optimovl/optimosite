@@ -1,0 +1,49 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+
+<h1><?=$variables['@header']?></h1>
+
+<?php $getRecentPages = $this->macros('content', 'getRecentPages')?>
+
+<?php if (isset($getRecentPages['items']['nodes:item']) && count($getRecentPages['items']['nodes:item']) < 1): ?>
+    <p><?=$this->translate('recent-pages-empty')?></p>
+<?php else: ?>
+    <?php $catalog = getCookie('catalog') ?>
+    <div class="catalog <?=$catalog?>">
+        <?php if ($catalog == 'list_view'): ?>
+            <div class="change">
+                <div class="slab"><?=$this->translate('slab-view')?></div>
+                <div class="list act"><?=$this->translate('list-view')?></div>
+            </div>
+        <?php else: ?>
+            <div class="change">
+                <div class="slab act"><?=$this->translate('slab-view')?></div>
+                <div class="list"><?=$this->translate('list-view')?></div>
+            </div>
+        <?php endif; ?>
+
+        <div class="objects">
+
+            <div style="border: 1px blue"></div>
+
+            <?php
+            $cart = $this->macros('emarket', 'cart');
+            $cartItems = array();
+            if (isset($cart['items']['nodes:item']) && $cart['items']['nodes:item']) {
+                foreach ($cart['items']['nodes:item'] as $item) {
+                    $cartItems[$item['page']->getId()] = $item['amount'];
+                }
+            }
+
+            /** @var umiHierarchyElement $offer */
+            $countItem = count($getRecentPages['items']['nodes:item']);
+            $counter = 1;
+            foreach ($getRecentPages['items']['nodes:item'] as $recentPage) {
+                $page = $this->getPageById($recentPage['@id']);
+                echo $this->render(array('offer' => $page, 'cartItems' => $cartItems, 'all' => $countItem, 'current' => $counter), 'catalog/short-view');
+                ++$counter;
+            }
+            ?>
+        </div>
+    </div>
+<?php endif; ?>

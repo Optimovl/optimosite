@@ -1,0 +1,22 @@
+<?php
+/** @var umiTemplaterPHP $this */
+/** @var array $variables */
+/** @var umiHierarchyElement $page */
+?>
+<?php
+$page = $variables['full:page'];
+$selector_page = $variables['@pageId'];
+?>
+
+<?
+if ($selector_page == 3) {
+?>
+<?=$this->render($variables, 'content/pages/context')?>
+<?
+} else {
+echo 2;
+$this->render($this->macros('core', 'navibar' ), 'library/navibar_partial');
+$page->getValue('h1');
+$page->getValue('content');
+}
+?>

@@ -1,0 +1,30 @@
+<section class="content-12">
+    <h2><a class="wide btn-wide" href="/services/">Наши услуги</a></h2>
+</section>
+<section class="content-4" role="complementary">
+    <div class="container">
+        <div class="row features">
+          <div class="anistart">
+            <?php foreach ($variables['items']['nodes:item'] as $item): ?>
+                      <?php $service = $this->getPageById($item['@id']); ?>
+                      <div class="col-sm-4 ani-processed"  style="opacity: 1;">
+        <figure>
+					<div class="drawings mac">
+	           <img src="/images/icons/svg/<?echo $item['@id'];?>.svg" alt="" width="150" height="150">  
+					</div>
+					<figcaption>
+					</figcaption>
+				</figure>
+          
+                        
+                        <div class="service-title"><a href="<?=$item['@link']?>"><?=$item['node:text']?></a></div>                        
+                        <?= $service->getValue('anons')?>
+                    </div>
+            <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section> 
+ 
+
+

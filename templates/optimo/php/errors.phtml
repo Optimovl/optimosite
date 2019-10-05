@@ -1,0 +1,17 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+
+<?php if(isset($variables['@header'])): ?>
+    <h1><?=$variables['@header']?></h1>
+<?php endif; ?>
+
+<div class="errors">
+    <h3>
+        <?=$this->translate('errors')?>
+    </h3>
+    <ul>
+        <li>
+            <?= $error->getMessage() ?>
+        </li>
+    </ul>
+</div>

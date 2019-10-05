@@ -1,0 +1,23 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+
+<?php
+    $count = count($variables['items']['nodes:item']);
+    $i = 0;
+?>
+
+
+
+<div class="breadcrumbs">
+    <a class='crumb' href="/">Главная</a>
+    <?php foreach($variables['items']['nodes:item'] as $item) {
+        if(++$i < $count) {
+            if($item["attribute:link"] == '/shop/') {
+                $item["attribute:link"] = '/';
+            }
+            echo "<a class='crumb' href='{$item["attribute:link"]}'>{$item['node:text']}</a> > ";
+        } else {
+            echo "<span class='crumb'>{$item['node:text']}</span>";
+        }
+    } ?>
+</div>

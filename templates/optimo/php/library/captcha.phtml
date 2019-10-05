@@ -1,0 +1,13 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+
+<?php if (isset($variables['url'])): ?>
+<div>
+    <label class="required">
+        <span><?=$this->translate('enter-captcha')?>:</span>
+        <input type="text" name="captcha" class="textinputs captcha" />
+        <img src="<?=$variables['url']['node:value'] . $variables['url']['attribute:random-string']?>" id="captcha_img" />
+        <span id="captcha_reset"><?=$this->translate('reset-captcha')?></span>
+    </label>
+</div>
+<?php endif; ?>

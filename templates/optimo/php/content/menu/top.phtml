@@ -1,0 +1,23 @@
+<div class="main-nav-block">
+<div class="wrap">
+  	<ul class="main-nav"> 
+    <?php foreach ($variables['items']['nodes:item'] as $item): ?>
+       <li> <a href="<?=$item['@link']?>">
+            <?=$item['node:text']?>
+        </a></li>
+    <?php endforeach; ?>
+    </ul>
+</div> 
+</div>  
+
+
+<!--<div class="main-nav-block">
+  <div class="wrap">
+  	<ul class="main-nav"> 
+    <?php foreach ($variables['items']['nodes:item'] as $item): ?>    
+  		<li><a href="<?=$item['@link']?>"<?=$item['node:text']?></a></li>
+      <?php endforeach; ?>
+  	</ul>
+  </div> 
+</div>  end .wrap -->
+

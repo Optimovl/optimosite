@@ -1,0 +1,29 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+
+<?php if($variables['items']['nodes:item']): ?>
+<div class="infoblock">
+    <div class="title"><h2><?=$this->translate('recent-pages-block')?></h2></div>
+    <div class="body">
+        <div class="in">
+            <strong><?=$this->translate('recent-pages-text')?>: </strong>
+            <ol class="recentPages">
+                <?php $count = 0; ?>
+                <?php foreach ($variables['items']['nodes:item'] as $item): ?>
+                <li>
+                    <a class="first" href="/content/delRecentPage/<?=$item['@id']?>" title="delete">&#215</a>
+                    <a href="<?=$item['@link']?>"><?=$item['@name']?></a>
+                </li>
+                <?php if (++$count == 3) {
+                    break 1;
+                } ?>
+                <?php endforeach; ?>
+
+                <li class="last">
+                    <a class="button" href="<?=cmsController::getInstance()->getPreLang()?>/content/getRecentPages/"><?=$this->translate('recent-pages-all')?></a>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

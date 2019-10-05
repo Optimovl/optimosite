@@ -1,0 +1,9 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+/** @var umiHierarchyElement $page */
+$page = $this->getPageByPath('/notfound/');
+?>
+
+<?=$page->getValue('h1')?>
+<?=$page->getValue('content')?>

@@ -1,0 +1,20 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+
+<?php if (isset($variables['total']) and isset($variables['per_page']) and $variables['total'] > $variables['per_page']): ?>
+    <?php $pages = $this->macros('system', 'numpages', array($variables['total'], $variables['per_page'])); ?>
+	
+  <div class="page-nav-block">
+		<ul class="page-nav">
+			
+        <?php foreach ($pages['void:pages'] as $page): ?>
+                <?php if (isset($page['attribute:is-active'])): ?>
+                    <li><span><?=$page['node:num']; ?></span></li>
+                <?php else: ?>
+                    <li><a href="<?=$page['attribute:link']?>"><?=$page['node:num']; ?></a></li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+		</ul>
+	</div>
+  
+<?php endif; ?>

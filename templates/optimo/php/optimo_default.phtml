@@ -1,0 +1,34 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ 
+$this->setCommonVar('user', $variables['user']);
+?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru" >     
+  <head>        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />        
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />        
+    <meta name="apple-mobile-web-app-capable" content="yes" />        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />        
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />                   
+    <title>
+      <?= $variables['@title'] ?> &mdash; Optimo
+    </title>        
+    <meta name="keywords" content="<?= $variables['meta']['keywords'] ?>" />        
+    <meta name="description" content="<?= $variables['meta']['description'] ?>" />                      
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />        
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />                                
+    <meta name="yandex-verification" content="11d45e3a7b90c00e" />        
+    <meta name='wmail-verification' content='c9d9402da4b64eb4306c295fe7ede952' />        
+    <meta name="msvalidate.01" content="F4E606D09372A5ADB45A3BA2FF38E63D" />
+    <meta name="google-site-verification" content="HqiVvQ6Fd-RqsA7F49yQtpAbyJ-6flHeDsoiItTKj8o" />   
+    <link rel="stylesheet" href="/optimo/templates/optimo/style/css/jquery.bxslider.css">
+    <link rel="stylesheet" href="/optimo/templates/optimo/style/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/optimo/templates/optimo/style/css/wowanimate.css">
+    <link rel="stylesheet" href="/optimo/templates/optimo/style/css/style.css">     
+  </head>    
+  <body>
+<?= $this->render($this->macros('system', 'listErrorMessages'), 'library/errors')?> 
+<?=$this->render($variables, $variables['@module'] . '/' . $variables['@method'])?>   
+</body>
+</HTML>
+

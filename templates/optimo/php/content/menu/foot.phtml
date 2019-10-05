@@ -1,0 +1,15 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+
+		<ul class="nav-footer">    
+        <?php
+        $hierarchy = umiHierarchy::getInstance();
+        /** @var umiHierarchyElement $item */
+        foreach ($variables['sel'] as $item):
+    ?>
+        	<li><a  href="<?=$hierarchy->getPathById($item->getId())?>"><?=$item->getName()?></a></li>
+    <?php endforeach; ?> 
+</ul>
+
+
+

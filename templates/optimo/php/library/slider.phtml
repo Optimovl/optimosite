@@ -1,0 +1,22 @@
+<?php
+/** @var umiTemplaterPHP $this */
+/** @var array $variables */
+?>
+
+<?php
+$items = array();
+foreach($variables['list']['void:lines'] as $k => $item) {
+    $items[$item['attribute:id']] = array(
+        'prev' => isset($variables['list']['void:lines'][$k-1]) ? $variables['list']['void:lines'][$k-1]['attribute:id'] : null,
+        'next' => isset($variables['list']['void:lines'][$k+1]) ? $variables['list']['void:lines'][$k+1]['attribute:id'] : null
+    );
+}
+?>
+
+<?php if (isset($items[$variables['currentId']]['prev'])): ?>
+    <a href="<?=umiHierarchy::getInstance()->getPathById($items[$variables['currentId']]['prev'])?>" title="<?=$this->translate('previous-page')?>" class="back"></a>
+<?php endif; ?>
+
+<?php if (isset($items[$variables['currentId']]['next'])): ?>
+    <a href="<?=umiHierarchy::getInstance()->getPathById($items[$variables['currentId']]['next'])?>" title="<?=$this->translate('next-page')?>" class="next"></a>
+<?php endif; ?>

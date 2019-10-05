@@ -1,0 +1,35 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+    $items = $variables['items']['nodes:item'];
+    if ( sizeof( $items ) == 1 && $items[0]['attribute:link'] == '/' ) {
+    	return true; // не выводим ничего, если главная	
+    }
+    // Локальный фикс для отображения хлебных крошек на служебных страницах
+    if( sizeof( $items ) == 0 ) {
+    	$items[] = array(
+    		"node:text" => $GLOBALS["globalVars"]["@header"],
+    		"attribute:link" => $GLOBALS["globalVars"]["@request-uri"],
+    	);
+    }
+?>
+
+<div class="breadcrumbs breadcrumbs_partial">
+ <div class="wrap">  <a class='crumb' href="/">Главная</a>
+    <?php
+    	foreach( $items as $k => $item) {
+            if($item["attribute:link"] == '/shop') {
+                $item["attribute:link"] = '/';
+            }
+            if( $k+1 == sizeof($items) ) {
+            	$items[ $k ] = "{$item['node:text']}";
+            } else {
+            	$items[ $k ] = "<a class='crumb' href='{$item["attribute:link"]}'>{$item['node:text']}</a>";
+            }
+        }
+        array_unshift( $items, '<a class="icon home"></a>' );
+        echo implode( " / ", $items );
+    ?>
+    <br class="clearEnd" />
+    </div>
+</div>
